@@ -1,0 +1,103 @@
+{% extends 'base.html' %}
+
+{% block title %}درباره ما | نیلگون{% endblock %}
+
+{% block content %}
+<section class="py-16">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="space-y-12">
+    <div class="space-y-3">
+        <span class="inline-flex items-center gap-2 rounded-full bg-accent/50 px-3 py-1 text-xs font-semibold text-primary">
+            نیلگون استودیو
+            <span class="h-1 w-1 rounded-full bg-primary/60"></span>
+            خلق جزئیات ماندگار
+        </span>
+        <h1 class="text-3xl font-bold text-primary leading-tight">مینیمال، صادقانه، ماندگار</h1>
+        <p class="text-slate-600 leading-relaxed">
+            ما استیکر را فقط یک تصویر نمی‌بینیم. هر طرح روایتی کوتاه از حال‌وهوای امروز است؛
+            صادقانه، بدون شلوغی و با احترام به سلیقه مخاطبی که جزئیات برایش مهم است.
+        </p>
+    </div>
+
+    <div class="grid gap-4 sm:grid-cols-2">
+        <div class="rounded-2xl bg-accent/30 p-5 ring-1 ring-accent/50">
+            <h2 class="text-lg font-semibold text-primary mb-2">ماموریت</h2>
+            <p class="text-slate-700 text-sm leading-relaxed">
+                ساخت استیکرهایی که ساده‌اند اما سطحی نیستند؛ مینیمال اما پر حس.
+                هر بسته طوری طراحی می‌شود که حرف ناگفته‌ای را به زبان تصویر بگوید.
+            </p>
+        </div>
+        <div class="rounded-2xl bg-white p-5 ring-1 ring-accent/50 shadow-sm">
+            <h2 class="text-lg font-semibold text-primary mb-2">مسیر</h2>
+            <p class="text-slate-700 text-sm leading-relaxed">
+                شروع در ۱۴۰۴، الهام از ادبیات و زندگی روزمره، و تمرکز بر کیفیت چاپ و طول عمر.
+                هر نسخه بعد از آزمون چاپ و بازخورد کاربران اصلاح می‌شود.
+            </p>
+        </div>
+    </div>
+
+    <div class="grid gap-4 sm:grid-cols-3">
+        <div class="rounded-2xl border border-accent/60 bg-white p-4 text-center">
+            <div class="text-3xl font-bold text-primary">۲+</div>
+            <div class="text-xs text-slate-500 mt-1">هم‌بنیان‌گذار عاشق جزئیات</div>
+        </div>
+        <div class="rounded-2xl border border-accent/60 bg-white p-4 text-center">
+            <div class="text-3xl font-bold text-primary">۱۴۰۴</div>
+            <div class="text-xs text-slate-500 mt-1">سال شروع و نخستین سری استیکر</div>
+        </div>
+        <div class="rounded-2xl border border-accent/60 bg-white p-4 text-center">
+            <div class="text-3xl font-bold text-primary">مینیمال</div>
+            <div class="text-xs text-slate-500 mt-1">هویت ثابت در همه مجموعه‌ها</div>
+        </div>
+    </div>
+
+    <div class="rounded-2xl bg-white p-6 ring-1 ring-accent/50 shadow-sm">
+        <h2 class="text-xl font-semibold text-primary mb-3">چرا نیلگون؟</h2>
+        <ul class="space-y-3 text-slate-700 text-sm leading-relaxed">
+            <li class="flex items-start gap-2">
+                <span class="mt-1 h-2 w-2 rounded-full bg-primary"></span>
+                طراحی صادقانه بر پایه روایت‌های کوتاه و ملموس.
+            </li>
+            <li class="flex items-start gap-2">
+                <span class="mt-1 h-2 w-2 rounded-full bg-primary"></span>
+                چاپ باکیفیت و انتخاب متریال مقاوم برای ماندگاری طولانی.
+            </li>
+            <li class="flex items-start gap-2">
+                <span class="mt-1 h-2 w-2 rounded-full bg-primary"></span>
+                مینیمالیسم بدون حذف حس؛ خطوط ساده، رنگ‌های کم اما معنادار.
+            </li>
+        </ul>
+    </div>
+
+    <div class="rounded-2xl bg-accent/30 p-6 ring-1 ring-accent/50">
+        <h2 class="text-xl font-semibold text-primary mb-4">تیم ما</h2>
+        <div class="space-y-3 text-slate-700 text-sm">
+            <div class="flex items-center justify-between">
+                <div>
+                    <div class="font-semibold text-primary">محمد ارجمندی</div>
+                    <div class="text-xs text-slate-500">مدیرعامل و هم‌بنیان‌گذار</div>
+                </div>
+                <span class="text-xs rounded-full bg-white/70 px-3 py-1 text-primary">راهبری محصول</span>
+            </div>
+            <div class="flex items-center justify-between">
+                <div>
+                    <div class="font-semibold text-primary">نیلی لطفی</div>
+                    <div class="text-xs text-slate-500">مدیر هنری و هم‌بنیان‌گذار</div>
+                </div>
+                <span class="text-xs rounded-full bg-white/70 px-3 py-1 text-primary">هویت بصری</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="rounded-2xl border border-dashed border-accent/70 bg-white p-5 text-center">
+        <p class="text-sm text-slate-700 leading-relaxed">
+            اگر ایده‌ای برای استیکر بعدی دارید یا می‌خواهید همکاری کنیم،
+            <a href="{% url 'website:contact' %}" class="font-semibold text-primary underline underline-offset-4 hover:text-blueaccent">
+                همین‌جا به ما بگویید
+            </a>.
+        </p>
+    </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

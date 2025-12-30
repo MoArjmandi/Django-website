@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}خروج | نیلگون{% endblock %}
+
+{% block content %}
+<section class="py-16">
+    <div class="mx-auto max-w-md px-4 sm:px-6 lg:px-8">
+        <div class="rounded-2xl bg-white p-8 shadow-xl ring-1 ring-accent/50 text-center">
+            <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-slate-100 mb-6">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-slate-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                </svg>
+            </div>
+            <h1 class="text-3xl font-bold text-primary mb-3">{% trans "خروج از حساب کاربری" %}</h1>
+            <p class="text-sm text-slate-600 mb-8">{% trans "آیا مطمئن هستید که می‌خواهید خارج شوید؟" %}</p>
+            <form method="post" class="space-y-4">
+                {% csrf_token %}
+                <button type="submit" class="w-full bg-primary text-white px-6 py-3 rounded-xl font-semibold shadow-lg hover:bg-blueaccent hover:shadow-xl transition-all duration-300">
+                    {% trans "بله، خارج شوم" %}
+                </button>
+                <a href="{% url 'website:index' %}" class="block w-full bg-white text-primary px-6 py-3 rounded-xl font-semibold border-2 border-primary hover:bg-accent/20 transition-all duration-300">
+                    {% trans "لغو" %}
+                </a>
+            </form>
+        </div>
+    </div>
+</section>
+{% endblock %}
+

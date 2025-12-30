@@ -1,8 +1,12 @@
 from django.contrib import admin
 
-from .models import ProductModel, CategoryModel
+from .models import Product, Category
 
 
 
-admin.site.register(ProductModel)
-admin.site.register(CategoryModel)
+
+
+admin.site.register(Product)
+
+
+admin.site.register(Category)

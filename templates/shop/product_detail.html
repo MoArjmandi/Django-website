@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+{% block title %}{{ object.name }} | نیلگون{% endblock %}
+{% block content %}
+<section class="py-16">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="space-y-8">
+    <div>
+        <a href="{% url 'product_list' %}" class="inline-flex items-center gap-2 text-sm text-slate-600 hover:text-primary transition mb-6">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+            بازگشت به فروشگاه
+        </a>
+    </div>
+
+    <div class="grid gap-8 lg:grid-cols-2">
+        <div class="rounded-2xl bg-accent/20 p-8 flex items-center justify-center min-h-[400px]">
+            <div class="text-center">
+                <div class="text-6xl mb-4">📦</div>
+                <p class="text-sm text-slate-500">تصویر محصول</p>
+            </div>
+        </div>
+
+        <div class="space-y-6">
+            <div>
+                {% if object.category %}
+                    <span class="inline-block rounded-full bg-accent/30 px-3 py-1 text-xs font-medium text-primary mb-3">
+                        {{ object.category.name }}
+                    </span>
+                {% endif %}
+                <h1 class="text-3xl font-bold text-primary mb-4">{{ object.name }}</h1>
+                {% if object.description %}
+                    <p class="text-slate-600 leading-relaxed">{{ object.description }}</p>
+                {% endif %}
+            </div>
+
+            <div class="rounded-2xl bg-white p-6 ring-1 ring-accent/50 shadow-sm">
+                <div class="space-y-4">
+                    <div class="flex items-baseline gap-3">
+                        {% if object.discount_price %}
+                            <span class="text-3xl font-bold text-primary">{{ object.discount_price|floatformat:0 }} تومان</span>
+                            <span class="text-lg text-slate-400 line-through">{{ object.price|floatformat:0 }}</span>
+                            <span class="rounded-full bg-blueaccent/20 text-blueaccent px-3 py-1 text-xs font-semibold">
+                                تخفیف ویژه
+                            </span>
+                        {% else %}
+                            <span class="text-3xl font-bold text-primary">{{ object.price|floatformat:0 }} تومان</span>
+                        {% endif %}
+                    </div>
+
+                    <div class="pt-4 border-t border-accent/30">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-sm font-medium text-slate-700">وضعیت موجودی:</span>
+                            {% if object.stock > 0 %}
+                                <span class="inline-flex items-center gap-2 rounded-full bg-green-50 text-green-700 px-3 py-1 text-sm font-medium">
+                                    <span class="h-2 w-2 rounded-full bg-green-500"></span>
+                                    موجود ({{ object.stock }} عدد)
+                                </span>
+                            {% else %}
+                                <span class="inline-flex items-center gap-2 rounded-full bg-slate-100 text-slate-600 px-3 py-1 text-sm font-medium">
+                                    <span class="h-2 w-2 rounded-full bg-slate-400"></span>
+                                    ناموجود
+                                </span>
+                            {% endif %}
+                        </div>
+
+                        {% if object.stock > 0 %}
+                            <button class="w-full bg-primary text-white px-6 py-3 rounded-xl font-semibold shadow-lg hover:bg-blueaccent hover:shadow-xl transition-all duration-300">
+                                افزودن به سبد خرید
+                            </button>
+                        {% else %}
+                            <button disabled class="w-full bg-slate-200 text-slate-500 px-6 py-3 rounded-xl font-semibold cursor-not-allowed">
+                                در حال حاضر موجود نیست
+                            </button>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+
+            <div class="rounded-2xl bg-accent/30 p-6 ring-1 ring-accent/50">
+                <h3 class="text-sm font-semibold text-primary mb-3">اطلاعات محصول</h3>
+                <dl class="space-y-2 text-sm">
+                    <div class="flex justify-between">
+                        <dt class="text-slate-600">دسته‌بندی:</dt>
+                        <dd class="font-medium text-slate-900">{{ object.category.name|default:"—" }}</dd>
+                    </div>
+                    <div class="flex justify-between">
+                        <dt class="text-slate-600">تاریخ اضافه شدن:</dt>
+                        <dd class="font-medium text-slate-900">{{ object.created_at|date:"Y/m/d" }}</dd>
+                    </div>
+                </dl>
+            </div>
+        </div>
+    </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
